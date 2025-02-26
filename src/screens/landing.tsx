@@ -1,20 +1,22 @@
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const animals = "/animations/animals.lottie"
+import logo from "../assets/images/logo.svg"
 
 function Landing() {
     return (
         <div className="flex-column-align-center-justify-between main-container">
 
-            <div>
+            <div className="flex-justify-between width100 navbar">
+                <img src={logo} alt="image" style={{width: "55px"}}/>
                 <p>Logo</p>
             </div>
 
             <Dotlottieanimation animationPath={animals} />
 
             <div  className="flex-column-align-center">
-                <h1>2</h1>
-                <p>Days</p>
-                <p>Description</p>
+                <h1 className="number">2</h1>
+                <p className="days">hours</p>
+                <p className="description">Alcohol free</p>
             </div>
 
             <div className="flex-column-align-center width100">

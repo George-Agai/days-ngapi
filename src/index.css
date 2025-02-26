@@ -31,6 +31,7 @@ button{
   border-radius: 10px;
   border: none;
   background-color: #867070;
+  font-weight: 700;
 }
 
 @media (prefers-color-scheme: light) {

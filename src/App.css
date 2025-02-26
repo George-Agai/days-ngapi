@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.flex-justify-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .width100{
   width: 100%;
 }
@@ -23,13 +29,44 @@
 
 .animals {
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   height: auto;
+  margin-top: -30px;
   /* border: 1px solid black; */
 }
 
 .reset-button{
   margin-top: 15px;
+  background-color: #f8e5bd;
+  /* border: 2px solid #e2dfdf; */
+  color: #6A5858;
+}
+
+.navbar{
+  /* border: 1px solid black; */
+  padding-top: 20px;
+}
+
+.number{
+  font-size: 70px;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
+
+.days{
+  margin-top: -20px;
+  color: #58b167;
+  font-size: 14px;
+}
+
+.description{
+  background-color: #fddc95;
+  color: #88754d;
+  font-size: 13px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: 1px solid #d4b879;
 }
 
 
@@ -43,7 +80,14 @@
 
   .animals {
     /* border: 1px solid black; */
-    max-width: 80vw;
+    max-width: 70vw;
+    margin-top: -60px;
+  }
+  /* *{
+    border: 1px solid black;
+  } */
+  .number{
+    margin-top: -60px;
   }
   
 }
