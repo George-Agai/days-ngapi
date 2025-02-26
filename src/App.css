@@ -1,0 +1,49 @@
+.flex-column-align-center-justify-between{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column-align-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.width100{
+  width: 100%;
+}
+
+.main-container{
+  min-width: 650px;
+  height: 90vh;
+  /* border: 3px solid green; */
+}
+
+.animals {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  /* border: 1px solid black; */
+}
+
+.reset-button{
+  margin-top: 15px;
+}
+
+
+
+
+@media screen and (max-width: 750px) {
+  .main-container{
+    min-width: 90vw;
+    /* border: 3px solid green; */
+  }
+
+  .animals {
+    /* border: 1px solid black; */
+    max-width: 80vw;
+  }
+  
+}
