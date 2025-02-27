@@ -17,11 +17,20 @@
 }
 
 h1 {
-  font-size: 3.2em;
-  /* line-height: 1.1; */
+  /* font-size: 3.2em; */
+  line-height: 1.1;
+  font-family: "Skranji", system-ui;
+  font-weight: 700;
+}
+
+p{
+  font-family: "Poor Story", system-ui;
+  font-weight: 400;
 }
 
 button{
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
   width: 98%;
   height: 55px;
   display: flex;
@@ -31,18 +40,10 @@ button{
   border-radius: 10px;
   border: none;
   background-color: #867070;
-  font-weight: 700;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover{
+  background-color: #ac9494;
+  cursor: pointer;
+  /* outline: 2px solid rgb(82, 82, 247); */
 }
