@@ -1,27 +1,33 @@
-.flex-column-align-center-justify-between{
+.flex-column-align-center-justify-between {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
 
-.flex-column-align-center{
+.flex-column-align-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.flex-justify-between{
+.flex-justify-between {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.width100{
+.flex-align-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.width100 {
   width: 100%;
 }
 
-.main-container{
+.main-container {
   min-width: 650px;
   height: 90vh;
   /* border: 3px solid green; */
@@ -32,34 +38,34 @@
   max-width: 300px;
   height: auto;
   margin-top: -30px;
-  /* border: 1px solid black; */
+  /* border: 1px solid black;  */
 }
 
-.reset-button{
+.reset-button {
   margin-top: 15px;
   background-color: #f8e5bd;
   /* border: 2px solid #e2dfdf; */
   color: #6A5858;
 }
 
-.navbar{
+.navbar {
   /* border: 1px solid black; */
   padding-top: 20px;
 }
 
-.number{
+.number {
   font-size: 70px;
   margin-bottom: 10px;
-  margin-top: -30px;
+  margin-top: 0px;
 }
 
-.days{
+.days {
   margin-top: -20px;
   color: #58b167;
   font-size: 14px;
 }
 
-.description{
+.description {
   background-color: #fddc95;
   color: #88754d;
   font-size: 13px;
@@ -69,25 +75,34 @@
   border: 1px solid #d4b879;
 }
 
-
+.animal-animation-container{
+  width: 100%;
+  height: max-content;
+  /* border: 1px solid black; */
+  background-image: url('./assets/images/cloudbackground.svg');
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: contain;
+}
 
 
 @media screen and (max-width: 750px) {
-  .main-container{
+  .main-container {
     min-width: 90vw;
     /* border: 3px solid green; */
   }
 
   .animals {
-    /* border: 1px solid black; */
+    /* border: 2px solid red; */
     max-width: 70vw;
     margin-top: -60px;
   }
+
   /* *{
     border: 1px solid black;
   } */
-  .number{
+  .number {
     margin-top: -60px;
   }
-  
+
 }
