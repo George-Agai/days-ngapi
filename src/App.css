@@ -29,7 +29,7 @@
 
 .main-container {
   min-width: 650px;
-  height: 90vh;
+  height: 96vh;
   /* border: 3px solid green; */
 }
 
@@ -37,7 +37,7 @@
   width: 100%;
   max-width: 300px;
   height: auto;
-  margin-top: -30px;
+  /* margin-top: -30px; */
   /* border: 1px solid black;  */
 }
 
@@ -54,7 +54,7 @@
 }
 
 .number {
-  font-size: 70px;
+  font-size: 85px;
   margin-bottom: 10px;
   margin-top: 0px;
 }
@@ -62,27 +62,28 @@
 .days {
   margin-top: -20px;
   color: #58b167;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .description {
   background-color: #fddc95;
   color: #88754d;
-  font-size: 13px;
+  font-size: 16px;
   padding: 5px 15px;
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
   border: 1px solid #d4b879;
 }
 
 .animal-animation-container{
-  width: 100%;
+  width: 50%;
   height: max-content;
   /* border: 1px solid black; */
   background-image: url('./assets/images/cloudbackground.svg');
   background-repeat: no-repeat;
   background-position: center center; 
   background-size: contain;
+  margin-top: -30px;
 }
 
 
@@ -95,14 +96,21 @@
   .animals {
     /* border: 2px solid red; */
     max-width: 70vw;
+    /* margin-top: -60px; */
+  }
+
+  .animal-animation-container{
+    margin-top: -80px;
+    width: 70%;
+  }
+
+  .number {
     margin-top: -60px;
   }
 
-  /* *{
-    border: 1px solid black;
-  } */
-  .number {
-    margin-top: -60px;
+  .main-container {
+    height: 90vh;
+    /* border: 3px solid green; */
   }
 
 }
