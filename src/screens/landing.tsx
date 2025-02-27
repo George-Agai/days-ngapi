@@ -1,9 +1,13 @@
+import { useState } from "react";
+import BottomSheet from "../components/bottomsheet";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const animals = "/animations/animals.lottie"
 import logo from "../assets/images/logo.svg"
 import avatar from "../assets/avatars/avatar6.png"
 
 function Landing() {
+    const [isBottomSheetOpen, setBottomSheetOpen] = useState(false);
+
     return (
         <div className="flex-column-align-center-justify-between main-container">
 
@@ -13,7 +17,7 @@ function Landing() {
             </div>
 
             <div className="animal-animation-container flex-align-center">
-                <Dotlottieanimation animationPath={animals}/>
+                <Dotlottieanimation animationPath={animals} />
             </div>
 
             <div className="flex-column-align-center">
@@ -23,9 +27,12 @@ function Landing() {
             </div>
 
             <div className="flex-column-align-center width100">
-                <button>Start</button>
+                <button onClick={() => setBottomSheetOpen(true)}>Start</button>
                 <button className="reset-button">Reset</button>
             </div>
+
+            {/* Bottom Sheet */}
+            <BottomSheet isOpen={isBottomSheetOpen} onClose={() => setBottomSheetOpen(false)} />
         </div>
     )
 }

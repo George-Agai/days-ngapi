@@ -14,6 +14,7 @@ const Animation: React.FC<AnimationProps> = (props) => {
             loop
             autoplay
             style={style}
+            speed={1.4}
             className='animals'
         />
     );
