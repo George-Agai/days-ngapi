@@ -27,6 +27,10 @@
   width: 100%;
 }
 
+.DMsans {
+  font-family: "DM Sans", sans-serif;
+}
+
 .main-container {
   min-width: 650px;
   height: 96vh;
@@ -38,7 +42,7 @@
   max-width: 300px;
   height: auto;
   /* margin-top: -30px; */
-  /* border: 1px solid black;  */
+  /* border: 1px solid red;  */
 }
 
 .reset-button {
@@ -68,7 +72,7 @@
 .days {
   margin-top: -20px;
   color: #58b167;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .description {
@@ -92,6 +96,28 @@
   margin-top: -30px;
 }
 
+.hourglass-div {
+  animation: hourglass-rotate 2s infinite linear;
+  max-width: 300px;
+  height: auto;
+  /* border: 1px solid black; */
+}
+
+
+@keyframes hourglass-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 /* New  code */
@@ -111,10 +137,10 @@
   bottom: 0;
   left: 10;
   width: 90%;
-  height: 90vh;
+  height: 100vh;
   background: white;
   border-radius: 20px 20px 0 0;
-  padding: 20px;
+  padding: 7px 20px;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
   z-index: 20;
   /* overflow-y: auto; */
@@ -122,31 +148,95 @@
 }
 
 .bottom-sheet-content {
-  padding: 10px;
+  padding: 0px 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid black;
+  justify-content: flex-start;
+  /* border: 1px solid black; */
+  height: 80%;
 }
 
 .bottom-sheet-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid black; */
 }
 
 .close-icon {
   cursor: pointer;
+  color: grey;
 }
 
 .hourglass,
-.user-icon,
-.success-icon {
+.user-icon {
   display: block;
   margin: 20px auto;
   width: 100px;
+}
+
+.instruction {
+  color: black;
+  /* text-align: left; */
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 25px;
+  font-weight: 700;
+  /* border: 1px solid black; */
+}
+
+.form {
+  height: 100%;
+}
+
+.form label {
+  text-align: left;
+  /* border: 1px solid black; */
+  width: 97%;
+  margin-bottom: 7px;
+  font-size: 17px;
+}
+
+input {
+  font-family: "DM Sans", sans-serif;
+  width: 93%;
+  background-color: transparent;
+  height: 45px;
+  border: 1px solid rgb(165, 158, 158);
+  border-radius: 7px;
+  padding: 0px 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+input:focus {
+  border: 2px solid #867070;
+  outline: none;
+}
+
+.target-period {
+  width: 98%;
+  margin-bottom: 0px;
+}
+
+.target-period select {
+  font-family: "DM Sans", sans-serif;
+  background-color: transparent;
+  color: black;
+  height: 45px;
+  border: 1px solid rgb(165, 158, 158);
+  border-radius: 7px;
+  padding: 0px 10px;
+  font-size: 16px;
+  margin-left: 15px;
+  margin-top: -15px;
 }
 
 .avatar-grid {
@@ -187,7 +277,7 @@
 /* End code */
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 650px) {
   .main-container {
     min-width: 90vw;
     /* border: 3px solid green; */
@@ -197,6 +287,11 @@
     /* border: 2px solid red; */
     max-width: 70vw;
     /* margin-top: -60px; */
+  }
+
+  .hourglass-div {
+    max-width: 50vw;
+    /* border: 1px solid black; */
   }
 
   .animal-animation-container {
@@ -224,6 +319,10 @@
     /* padding: 10px; */
     /* border: 2px solid red; */
     width: 100%;
+  }
+
+  .bottom-sheet {
+    height: 90vh;
   }
 
 }
