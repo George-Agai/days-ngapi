@@ -3,10 +3,11 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 interface AnimationProps {
     animationPath: string;
     style?: React.CSSProperties;
+    speed?: number
 }
 
 const Animation: React.FC<AnimationProps> = (props) => {
-    const { animationPath, style } = props;
+    const { animationPath, style, speed } = props;
 
     return (
         <DotLottieReact
@@ -14,7 +15,7 @@ const Animation: React.FC<AnimationProps> = (props) => {
             loop
             autoplay
             style={style}
-            speed={1.4}
+            speed={speed}
             className='animals'
         />
     );

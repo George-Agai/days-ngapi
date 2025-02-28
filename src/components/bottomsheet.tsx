@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { X, CheckCircle } from "lucide-react";
+import { X, CheckCircle, ChevronLeft } from "lucide-react";
+import Dotlottieanimation from "../components/dotlottieanimation.tsx"
+const cat = "/animations/cat.lottie"
+const hourglass = "/animations/hourglass.lottie"
 import avatar1 from "../assets/avatars/avatar1.png";
 import avatar2 from "../assets/avatars/avatar2.png";
 import avatar3 from "../assets/avatars/avatar3.png";
@@ -20,7 +23,7 @@ interface BottomSheetProps {
 
 const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
     const [step, setStep] = useState(1);
-    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
+    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(avatar6);
 
     return (
         <>
@@ -33,30 +36,32 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 initial={{ y: "100%" }}
                 animate={{ y: isOpen ? "10%" : "110%" }}
                 exit={{ y: "100%" }}
-                transition={{ type: "spring", stiffness: 50 }}
+                transition={{ type: "spring", stiffness: 150, damping: 20 }}
             >
                 {/* Header */}
                 <div className="bottom-sheet-header">
-                    <h2>Step {step} of 2</h2>
-                    {/* <img src={avatar1} alt="Hourglass" className="close-icon" onClick={onClose} /> */}
+                    <ChevronLeft className="close-icon" onClick={() => setStep(1)} style={{ opacity: step === 2 ? 1 : 0 }} />
+                    <p className="DMsans" style={{ fontSize: "15px", color: 'grey', fontWeight: 400 }}>{step === 3 ? "Yaaay" : `Step ${step} of 2`}</p>
                     <X className="close-icon" onClick={onClose} />
                 </div>
 
                 {/* Step 1: Form */}
                 {step === 1 && (
                     <div className="bottom-sheet-content">
-                        <img src={avatar1} alt="Hourglass" className="hourglass" />
-                        <p className="instruction">Please provide the following information</p>
 
-                        <form className="flex-column-align-center width100" style={{border: "1px solid red"}}>
-                            <label>Username*</label>
-                            <input type="text" placeholder="Enter your username" />
+                        <Dotlottieanimation animationPath={cat} speed={1.8} />
+
+                        <p className="instruction DMsans">Please provide the following information</p>
+
+                        <form className="flex-column-align-center width100 form DMsans">
+                            <label>Username</label>
+                            <input type="text" placeholder="Enter your username" className="input" />
 
                             <label>What are you trying to stop?</label>
                             <input type="text" placeholder="Alcohol/Smoking" />
 
                             <label>Target Period</label>
-                            <div className="target-period">
+                            <div className="target-period flex-align-center">
                                 <input type="number" placeholder="6" />
                                 <select defaultValue="Months">
                                     <option>Days</option>
@@ -66,7 +71,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                                 </select>
                             </div>
 
-                            <button type="button" onClick={() => setStep(2)}>Next</button>
+                            <button style={{ marginTop: '20px' }} type="button" onClick={() => setStep(2)}>Next</button>
                         </form>
                     </div>
                 )}
@@ -74,19 +79,18 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {/* Step 2: Avatar Selection */}
                 {step === 2 && (
                     <div className="bottom-sheet-content">
-                        <img src={avatar6} alt="User" className="user-icon" />
-                        <p className="instruction">Please select your avatar</p>
-                        {/* <button type="button" onClick={() => setStep(3)}>Finish</button> */}
+                        <img src={selectedAvatar} alt="User" className="user-icon" style={{ border: "2px solid #867070", borderRadius: '50%' }} />
+                        <p className="instruction DMsans">Please select your avatar</p>
                         <div className="avatar-grid">
                             {avatars.map((avatar, index) => (
                                 <div key={index} className={`avatar ${selectedAvatar === avatar ? "selected" : ""}`} onClick={() => setSelectedAvatar(avatar)}>
-                                    <img src={avatar} alt={`Avatar ${index + 1}`} className="avatar-image"/>
+                                    <img src={avatar} alt={`Avatar ${index + 1}`} className="avatar-image" style={{ border: "1px solid lightgrey", borderRadius: '50%' }} />
                                     {selectedAvatar === avatar && <CheckCircle className="checkmark" />}
                                 </div>
                             ))}
                         </div>
 
-                        <button type="button" onClick={() => setStep(3)}>Finish</button>
+                        <button style={{ marginTop: '30px' }} type="button" onClick={() => setStep(3)}>Finish</button>
                     </div>
                 )}
 
@@ -94,7 +98,10 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {step === 3 && (
                     <div className="bottom-sheet-content">
                         {/* <img src={avatar6} alt="User" className="success-icon" /> */}
-                        <CheckCircle className="success-icon" />
+                        {/* <CheckCircle className="success-icon" /> */}
+                        <div className="hourglass-div">
+                            <Dotlottieanimation animationPath={hourglass} />
+                        </div>
                         <h2>Congratulations</h2>
                         <p>You just made the first step towards freedom.</p>
                     </div>
