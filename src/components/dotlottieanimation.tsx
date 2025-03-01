@@ -4,16 +4,15 @@ interface AnimationProps {
     animationPath: string;
     style?: React.CSSProperties;
     speed?: number
-    loop?: boolean
 }
 
 const Animation: React.FC<AnimationProps> = (props) => {
-    const { animationPath, style, speed, loop } = props;
+    const { animationPath, style, speed } = props;
 
     return (
         <DotLottieReact
             src={animationPath}
-            loop ={loop ? loop : false}
+            loop
             autoplay
             style={style}
             speed={speed}
