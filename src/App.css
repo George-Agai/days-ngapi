@@ -97,8 +97,8 @@
 }
 
 .hourglass-div {
-  animation: hourglass-rotate 2s infinite linear;
-  max-width: 300px;
+  animation: hourglass-rotate 3s infinite linear;
+  max-width: 200px;
   height: auto;
   /* border: 1px solid black; */
 }
@@ -137,7 +137,9 @@
   bottom: 0;
   left: 10;
   width: 90%;
+
   height: 100vh;
+  max-height: 100vh;
   background: white;
   border-radius: 20px 20px 0 0;
   padding: 7px 20px;
@@ -145,6 +147,9 @@
   z-index: 20;
   /* overflow-y: auto; */
   /* border: 2px solid green; */
+
+  display: flex;
+  flex-direction: column;
 }
 
 .bottom-sheet-content {
@@ -155,7 +160,9 @@
   align-items: center;
   justify-content: flex-start;
   /* border: 1px solid black; */
-  height: 80%;
+
+  /* height: 80%; */
+  flex-grow: 1;
 }
 
 .bottom-sheet-header {
@@ -174,7 +181,7 @@
 .user-icon {
   display: block;
   margin: 20px auto;
-  width: 100px;
+  width: 80px;
 }
 
 .instruction {
@@ -182,7 +189,8 @@
   /* text-align: left; */
   font-size: 16px;
   width: 100%;
-  margin-bottom: 25px;
+  margin-top: -5px;
+  margin-bottom: 5px;
   font-weight: 700;
   /* border: 1px solid black; */
 }
@@ -274,6 +282,23 @@ input:focus {
   /* width: 10px; */
 }
 
+#emptyspace {
+  margin-top: -30px;
+}
+
+.floating-animation {
+  position: fixed;
+  top: 7;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 100;
+  /* border: 1.5px solid #dfdfdf; */
+}
+
 /* End code */
 
 
@@ -322,7 +347,34 @@ input:focus {
   }
 
   .bottom-sheet {
-    height: 90vh;
+    height: 100vh;
+    /* max-height: 94vh; */
+    /* height: max-content; */
   }
 
+  #emptyspace {
+    margin-top: -40px;
+  }
+
+  .instruction {
+    margin-bottom: 20px;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  .bottom-sheet {
+    height: 90vh;
+    /* max-height: 94vh; */
+    /* height: max-content; */
+  }
+
+  #emptyspace {
+    margin-top: -20px;
+  }
+
+  .instruction {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
 }

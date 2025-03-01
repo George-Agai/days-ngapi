@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { X, CheckCircle, ChevronLeft } from "lucide-react";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const cat = "/animations/cat.lottie"
+const confetti = "/animations/confetti.lottie"
 const hourglass = "/animations/hourglass.lottie"
 import avatar1 from "../assets/avatars/avatar1.png";
 import avatar2 from "../assets/avatars/avatar2.png";
@@ -41,14 +42,14 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {/* Header */}
                 <div className="bottom-sheet-header">
                     <ChevronLeft className="close-icon" onClick={() => setStep(1)} style={{ opacity: step === 2 ? 1 : 0 }} />
-                    <p className="DMsans" style={{ fontSize: "15px", color: 'grey', fontWeight: 400 }}>{step === 3 ? "Yaaay" : `Step ${step} of 2`}</p>
+                    <p className="DMsans" style={{ fontSize: "15px", color: 'grey', fontWeight: 400 }}>{step === 3 ? "You did it🎉" : `Step ${step} of 2`}</p>
                     <X className="close-icon" onClick={onClose} />
                 </div>
 
                 {/* Step 1: Form */}
                 {step === 1 && (
                     <div className="bottom-sheet-content">
-
+                        <div id="emptyspace"></div>
                         <Dotlottieanimation animationPath={cat} speed={1.8} />
 
                         <p className="instruction DMsans">Please provide the following information</p>
@@ -71,7 +72,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                                 </select>
                             </div>
 
-                            <button style={{ marginTop: '20px' }} type="button" onClick={() => setStep(2)}>Next</button>
+                            <button style={{ marginTop: '10px' }} type="button" onClick={() => setStep(2)}>Next</button>
                         </form>
                     </div>
                 )}
@@ -83,7 +84,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                         <p className="instruction DMsans">Please select your avatar</p>
                         <div className="avatar-grid">
                             {avatars.map((avatar, index) => (
-                                <div key={index} className={`avatar ${selectedAvatar === avatar ? "selected" : ""}`} onClick={() => setSelectedAvatar(avatar)}>
+                                <div key={index} className={`avatar flex-align-center ${selectedAvatar === avatar ? "selected" : ""}`} onClick={() => setSelectedAvatar(avatar)}>
                                     <img src={avatar} alt={`Avatar ${index + 1}`} className="avatar-image" style={{ border: "1px solid lightgrey", borderRadius: '50%' }} />
                                     {selectedAvatar === avatar && <CheckCircle className="checkmark" />}
                                 </div>
@@ -97,13 +98,15 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {/* Step 3: Success Message */}
                 {step === 3 && (
                     <div className="bottom-sheet-content">
-                        {/* <img src={avatar6} alt="User" className="success-icon" /> */}
-                        {/* <CheckCircle className="success-icon" /> */}
+                        <div className="floating-animation">
+                            <Dotlottieanimation animationPath={confetti} loop={true} speed={0.5}/>
+                        </div>
                         <div className="hourglass-div">
                             <Dotlottieanimation animationPath={hourglass} />
+
                         </div>
-                        <h2>Congratulations</h2>
-                        <p>You did it! You just made the first step towards freedom.</p>
+                        <h2 className="DMsans">Congratulations🎊</h2>
+                        <p className="DMsans" style={{ lineHeight: 1.5, fontSize: "17px", color: "gray" }}>You've taken the first step towards freedom and a better you.</p>
                     </div>
                 )}
             </motion.div>
