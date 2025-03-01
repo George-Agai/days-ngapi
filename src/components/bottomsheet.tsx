@@ -105,8 +105,10 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                             <Dotlottieanimation animationPath={hourglass} />
 
                         </div>
+
                         <h2 className="DMsans">Congratulations🎊</h2>
                         <p className="DMsans" style={{ lineHeight: 1.5, fontSize: "17px", color: "gray" }}>You've taken the first step towards freedom and a better you.</p>
+
                     </div>
                 )}
             </motion.div>
