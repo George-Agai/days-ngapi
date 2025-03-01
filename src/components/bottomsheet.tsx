@@ -99,7 +99,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {step === 3 && (
                     <div className="bottom-sheet-content">
                         <div className="floating-animation">
-                            <Dotlottieanimation animationPath={confetti} loop={true} speed={0.5}/>
+                            <Dotlottieanimation animationPath={confetti} speed={0.5}/>
                         </div>
                         <div className="hourglass-div">
                             <Dotlottieanimation animationPath={hourglass} />

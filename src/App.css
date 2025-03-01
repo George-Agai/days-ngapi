@@ -41,14 +41,11 @@
   width: 100%;
   max-width: 300px;
   height: auto;
-  /* margin-top: -30px; */
-  /* border: 1px solid red;  */
 }
 
 .reset-button {
   margin-top: 15px;
   background-color: #f8e5bd;
-  /* border: 2px solid #e2dfdf; */
   color: #6A5858;
 }
 
@@ -59,7 +56,6 @@
 }
 
 .navbar {
-  /* border: 1px solid black; */
   padding-top: 20px;
 }
 
@@ -88,7 +84,6 @@
 .animal-animation-container {
   width: 50%;
   height: max-content;
-  /* border: 1px solid black; */
   background-image: url('./assets/images/cloudbackground.svg');
   background-repeat: no-repeat;
   background-position: center center;
@@ -100,7 +95,6 @@
   animation: hourglass-rotate 3s infinite linear;
   max-width: 200px;
   height: auto;
-  /* border: 1px solid black; */
 }
 
 
@@ -118,9 +112,6 @@
   }
 }
 
-
-
-/* New  code */
 .overlay {
   position: fixed;
   top: 0;
@@ -137,17 +128,13 @@
   bottom: 0;
   left: 10;
   width: 90%;
-
   height: 100vh;
   max-height: 100vh;
-  background: white;
+  background: #FFFACD;
   border-radius: 20px 20px 0 0;
   padding: 7px 20px;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
   z-index: 20;
-  /* overflow-y: auto; */
-  /* border: 2px solid green; */
-
   display: flex;
   flex-direction: column;
 }
@@ -159,9 +146,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* border: 1px solid black; */
-
-  /* height: 80%; */
   flex-grow: 1;
 }
 
@@ -169,7 +153,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid black; */
 }
 
 .close-icon {
@@ -186,13 +169,11 @@
 
 .instruction {
   color: black;
-  /* text-align: left; */
   font-size: 16px;
   width: 100%;
   margin-top: -5px;
   margin-bottom: 5px;
   font-weight: 700;
-  /* border: 1px solid black; */
 }
 
 .form {
@@ -201,10 +182,10 @@
 
 .form label {
   text-align: left;
-  /* border: 1px solid black; */
   width: 97%;
   margin-bottom: 7px;
   font-size: 17px;
+  color: black;
 }
 
 input {
@@ -221,7 +202,7 @@ input {
 }
 
 input::placeholder {
-  color: lightgray;
+  color: gray;
 }
 
 input:focus {
@@ -251,8 +232,6 @@ input:focus {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
-  /* padding: 10px; */
-  /* border: 2px solid red; */
   width: 100%;
 }
 
@@ -260,9 +239,8 @@ input:focus {
   position: relative;
   cursor: pointer;
   padding: 5px;
-  border: 1.5px solid #dfdfdf;
+  border: 1.5px solid #e9e3c2;
   border-radius: 10px;
-  /* width: 30px; */
 }
 
 .avatar.selected {
@@ -271,7 +249,6 @@ input:focus {
 
 .avatar-image {
   width: 60px;
-  /* height: auto; */
 }
 
 .checkmark {
@@ -279,7 +256,6 @@ input:focus {
   top: 5px;
   right: 5px;
   color: #867070;
-  /* width: 10px; */
 }
 
 #emptyspace {
@@ -296,10 +272,9 @@ input:focus {
   justify-content: center;
   pointer-events: none;
   z-index: 100;
-  /* border: 1.5px solid #dfdfdf; */
 }
 
-/* End code */
+
 
 
 @media screen and (max-width: 650px) {
@@ -316,7 +291,6 @@ input:focus {
 
   .hourglass-div {
     max-width: 50vw;
-    /* border: 1px solid black; */
   }
 
   .animal-animation-container {
@@ -330,7 +304,6 @@ input:focus {
 
   .main-container {
     height: 90vh;
-    /* border: 3px solid green; */
   }
 
   .reset-button {
@@ -341,15 +314,11 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    /* padding: 10px; */
-    /* border: 2px solid red; */
     width: 100%;
   }
 
   .bottom-sheet {
     height: 100vh;
-    /* max-height: 94vh; */
-    /* height: max-content; */
   }
 
   #emptyspace {
@@ -365,8 +334,6 @@ input:focus {
 @media screen and (max-width: 450px) {
   .bottom-sheet {
     height: 90vh;
-    /* max-height: 94vh; */
-    /* height: max-content; */
   }
 
   #emptyspace {
