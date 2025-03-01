@@ -23,7 +23,7 @@ interface BottomSheetProps {
 
 const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
     const [step, setStep] = useState(1);
-    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(avatar6);
+    const [selectedAvatar, setSelectedAvatar] = useState<string | undefined>(avatar6);
 
     return (
         <>
