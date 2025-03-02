@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { X, CheckCircle, ChevronLeft } from "lucide-react";
+import { X,  ChevronLeft } from "lucide-react";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const dog = "/animations/dog.lottie"
 
