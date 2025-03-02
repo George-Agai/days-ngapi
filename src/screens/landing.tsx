@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BottomSheet from "../components/bottomsheet";
+import ResetBottomSheet from "../components/resetcount";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const animals = "/animations/animals.lottie"
 import logo from "../assets/images/logo.svg"
@@ -7,6 +8,7 @@ import avatar from "../assets/avatars/avatar6.png"
 
 function Landing() {
     const [isBottomSheetOpen, setBottomSheetOpen] = useState(false);
+    const [isResetBottomSheetOpen, setResetBottomSheetOpen] = useState(false);
 
     return (
         <div className="flex-column-align-center-justify-between main-container">
@@ -28,10 +30,12 @@ function Landing() {
 
             <div className="flex-column-align-center width100">
                 <button onClick={() => setBottomSheetOpen(true)}>Start</button>
-                <button className="reset-button">Reset</button>
+                <button className="reset-button" onClick={() => setResetBottomSheetOpen(true)}>Reset</button>
             </div>
 
             <BottomSheet isOpen={isBottomSheetOpen} onClose={() => setBottomSheetOpen(false)} />
+
+            <ResetBottomSheet isOpen={isResetBottomSheetOpen} onClose={() => setResetBottomSheetOpen(false)} />
         </div>
     )
 }
