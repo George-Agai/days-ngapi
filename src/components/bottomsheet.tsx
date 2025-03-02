@@ -37,7 +37,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 initial={{ y: "100%" }}
                 animate={{ y: isOpen ? "10%" : "110%" }}
                 exit={{ y: "100%" }}
-                transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                transition={{ type: "spring", stiffness: 200, damping: 22 }}
             >
                 {/* Header */}
                 <div className="bottom-sheet-header">
@@ -85,7 +85,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                         <div className="avatar-grid">
                             {avatars.map((avatar, index) => (
                                 <div key={index} className={`avatar flex-align-center ${selectedAvatar === avatar ? "selected" : ""}`} onClick={() => setSelectedAvatar(avatar)}>
-                                    <img src={avatar} alt={`Avatar ${index + 1}`} className="avatar-image" style={{ border: "1px solid lightgrey", borderRadius: '50%' }} />
+                                    <img src={avatar} alt={`Avatar ${index + 1}`} className="avatar-image" />
                                     {selectedAvatar === avatar && <CheckCircle className="checkmark" />}
                                 </div>
                             ))}
@@ -109,6 +109,10 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                         <h2 className="DMsans">Congratulations🎊</h2>
                         <p className="DMsans" style={{ lineHeight: 1.5, fontSize: "17px", color: "gray" }}>You've taken the first step towards freedom and a better you.</p>
 
+                        <div>
+                            <h1 className="number" style={{marginTop: '30px'}}>19</h1>
+                            <p className="days">Seconds</p>
+                        </div>
                     </div>
                 )}
             </motion.div>
