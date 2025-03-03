@@ -81,6 +81,10 @@
   border: 1px solid #d4b879;
 }
 
+.description:hover{
+  cursor: pointer;
+}
+
 .animal-animation-container {
   width: 50%;
   height: max-content;
@@ -275,6 +279,31 @@ input:focus {
   pointer-events: none;
   z-index: 100;
 }
+
+.target-popup {
+  position: fixed;
+  top: 35%;
+  /* left: 50%; */
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  text-align: center;
+  width: 280px;
+}
+
+.close-button {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 
 
 

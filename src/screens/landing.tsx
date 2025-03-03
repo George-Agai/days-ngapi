@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BottomSheet from "../components/bottomsheet";
 import ResetBottomSheet from "../components/resetcount";
+import Popup from "../components/popup";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const animals = "/animations/animals.lottie"
 import logo from "../assets/images/logo.svg"
@@ -9,6 +10,7 @@ import avatar from "../assets/avatars/avatar6.png"
 function Landing() {
     const [isBottomSheetOpen, setBottomSheetOpen] = useState(false);
     const [isResetBottomSheetOpen, setResetBottomSheetOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     return (
         <div className="flex-column-align-center-justify-between main-container">
@@ -19,13 +21,15 @@ function Landing() {
             </div>
 
             <div className="animal-animation-container flex-align-center">
-                <Dotlottieanimation animationPath={animals} speed={1.8}/>
+                <Dotlottieanimation animationPath={animals} speed={1.8} />
             </div>
 
             <div className="flex-column-align-center">
                 <h1 className="number">2</h1>
                 <p className="days">Hours</p>
-                <p className="description">Alcohol free</p>
+                <p className="description" onClick={() => setIsPopupOpen(true)}>Alcohol free</p>
+
+                {isPopupOpen && <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
             </div>
 
             <div className="flex-column-align-center width100">
