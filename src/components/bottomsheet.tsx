@@ -99,7 +99,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                 {step === 3 && (
                     <div className="bottom-sheet-content">
                         <div className="floating-animation">
-                            <Dotlottieanimation animationPath={confetti} speed={0.5}/>
+                            <Dotlottieanimation animationPath={confetti} speed={0.5} />
                         </div>
                         <div className="hourglass-div">
                             <Dotlottieanimation animationPath={hourglass} />
@@ -110,7 +110,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                         <p className="DMsans" style={{ lineHeight: 1.5, fontSize: "17px", color: "gray" }}>You've taken the first step towards freedom and a better you.</p>
 
                         <div>
-                            <h1 className="number" style={{marginTop: '30px'}}>19</h1>
+                            <h1 className="number" style={{ marginTop: '30px' }}>19</h1>
                             <p className="days">Seconds</p>
                         </div>
                     </div>

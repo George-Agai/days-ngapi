@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { X,  ChevronLeft } from "lucide-react";
+import { X, ChevronLeft } from "lucide-react";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
 const dog = "/animations/dog.lottie"
 
@@ -14,10 +14,8 @@ const ResetCount: React.FC<ResetCountProps> = ({ isOpen, onClose }) => {
 
     return (
         <>
-            {/* Background Blur */}
             {isOpen && <div className="overlay" onClick={onClose}></div>}
 
-            {/* Bottom Sheet */}
             <motion.div
                 className="bottom-sheet"
                 initial={{ y: "100%" }}
@@ -33,7 +31,7 @@ const ResetCount: React.FC<ResetCountProps> = ({ isOpen, onClose }) => {
 
                 {step === 1 && (
                     <div className="bottom-sheet-content">
-                        <Dotlottieanimation animationPath={dog} speed={1.2}/>
+                        <Dotlottieanimation animationPath={dog} speed={1.2} />
 
                         <h2 className="DMsans">Slight setback😔</h2>
                         <p className="DMsans"
@@ -43,7 +41,7 @@ const ResetCount: React.FC<ResetCountProps> = ({ isOpen, onClose }) => {
                         </p>
 
                         <div>
-                            <h1 className="number" style={{marginTop: '30px'}}>0</h1>
+                            <h1 className="number" style={{ marginTop: '30px' }}>0</h1>
                             <p className="days">Seconds</p>
                         </div>
                     </div>
