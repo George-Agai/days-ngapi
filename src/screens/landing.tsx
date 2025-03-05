@@ -24,13 +24,12 @@ function Landing() {
                 <Dotlottieanimation animationPath={animals} speed={1.8} />
             </div>
 
-            <div className="flex-column-align-center">
+            <div className="flex-column-align-center" onClick={() => setIsPopupOpen(true)}>
                 <h1 className="number">2</h1>
                 <p className="days">Hours</p>
-                <p className="description" onClick={() => setIsPopupOpen(true)}>Alcohol free</p>
-
-                {isPopupOpen && <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
+                <p className="description">Alcohol free</p>
             </div>
+            {isPopupOpen && <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
 
             <div className="flex-column-align-center width100">
                 <button onClick={() => setBottomSheetOpen(true)}>Start</button>
