@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Clock from "./clock"
 
 interface TargetPopupProps {
     isOpen: boolean;
@@ -17,7 +18,15 @@ const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen }) => {
                 exit={{ scale: 0.5, opacity: 0, y: 20 }}
                 transition={{ type: "spring", stiffness: 150, damping: 10 }}
             >
-                <h3>Target Details</h3>
+                <span className="flex-justify-end duration-span">
+                    {/* <h1 className="popup-number">2</h1>
+                    <p className="days">Hours</p>
+                    <h1 className="popup-number">12</h1>
+                    <p className="days">Minutes</p> */}
+
+                    <Clock/>
+                </span>
+
                 <p>🎯 Target Days: 30</p>
                 <p>📅 Start Date: Jan 1, 2024</p>
                 <button onClick={onClose} className="close-button">Close</button>
