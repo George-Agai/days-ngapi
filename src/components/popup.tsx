@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-// import Clock from "./clock"
-import Duration from "./duration.tsx";
+import Clock from "./clock"
+// import Duration from "./duration.tsx";
 
 interface TargetPopupProps {
     isOpen: boolean;
@@ -8,8 +8,8 @@ interface TargetPopupProps {
 }
 
 const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen }) => {
-    
-    const journeyStart = new Date(new Date().getTime() - (1 * 86400 + 2 * 3600 + 15 * 60) * 1000);
+
+    // const journeyStart = new Date(new Date().getTime() - (1 * 86400 + 2 * 3600 + 15 * 60) * 1000);
     return (
         <>
             {isOpen && <div className="overlay" onClick={onClose}></div>}
@@ -27,9 +27,9 @@ const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen }) => {
                     <h1 className="popup-number">12</h1>
                     <p className="days">Minutes</p> */}
 
-                    {/* <Clock/> */}
+                    <Clock/>
 
-                    <Duration startDate={journeyStart} />
+                    {/* <Duration startDate={journeyStart} /> */}
                 </span>
 
                 <p>🎯 Target Days: 30</p>
