@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { X, CheckCircle, ChevronLeft } from "lucide-react";
 import Dotlottieanimation from "../components/dotlottieanimation.tsx"
+import { splitTimeClean } from "../constants/functions.tsx";
 const cat = "/animations/cat.lottie"
 const confetti = "/animations/confetti.lottie"
 const hourglass = "/animations/hourglass.lottie"
@@ -20,18 +21,28 @@ const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, 
 interface BottomSheetProps {
     isOpen: boolean;
     onClose: () => void;
+    isAuthenticated?: boolean;
+    timeClean: string;
+    startDateFound?: boolean;
 }
 
-const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
+const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, isAuthenticated, timeClean, startDateFound }) => {
     const [step, setStep] = useState(1);
     const [selectedAvatar, setSelectedAvatar] = useState<string | undefined>(avatar6);
 
+    const { value, unit } = splitTimeClean(timeClean);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            setStep(1)
+        }
+        else setStep(3)
+    }, [])
+
     return (
         <>
-            {/* Background Blur */}
             {isOpen && <div className="overlay" onClick={onClose}></div>}
 
-            {/* Bottom Sheet */}
             <motion.div
                 className="bottom-sheet"
                 initial={{ y: "100%" }}
@@ -103,16 +114,21 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
                         </div>
                         <div className="hourglass-div">
                             <Dotlottieanimation animationPath={hourglass} />
-
                         </div>
 
                         <h2 className="DMsans">Congratulations🎊</h2>
                         <p className="DMsans" style={{ lineHeight: 1.5, fontSize: "17px", color: "gray" }}>You've taken the first step towards freedom and a better you.</p>
 
-                        <div>
-                            <h1 className="number" style={{ marginTop: '30px' }}>19</h1>
-                            <p className="days">Seconds</p>
-                        </div>
+                        {startDateFound ?
+                            <div>
+                                <h1 className="number" style={{ marginTop: '30px' }}>{value}</h1>
+                                <p className="days">{unit}</p>
+                            </div>
+                            :
+                            <div>
+                                <h1 className="number" style={{ marginTop: '30px' }}>0</h1>
+                                <p className="days">seconds</p>
+                            </div>}
                     </div>
                 )}
             </motion.div>

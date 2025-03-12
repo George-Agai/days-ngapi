@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
-import Clock from "./clock"
+import { splitTimeClean } from "../constants/functions.tsx";
 // import Duration from "./duration.tsx";
 
 interface TargetPopupProps {
     isOpen: boolean;
     onClose: () => void;
+    timeClean: string
+    startDateFound?: boolean
 }
 
-const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen }) => {
+const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen, timeClean, startDateFound }) => {
+
+    const { value, unit } = splitTimeClean(timeClean);
 
     // const journeyStart = new Date(new Date().getTime() - (1 * 86400 + 2 * 3600 + 15 * 60) * 1000);
     return (
@@ -19,18 +23,18 @@ const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen }) => {
                 initial={{ scale: 0.5, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.5, opacity: 0, y: 20 }}
-                transition={{ type: "spring", stiffness: 150, damping: 10 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
             >
-                <span className="flex-justify-end duration-span">
-                    {/* <h1 className="popup-number">2</h1>
-                    <p className="days">Hours</p>
-                    <h1 className="popup-number">12</h1>
-                    <p className="days">Minutes</p> */}
-
-                    <Clock/>
-
-                    {/* <Duration startDate={journeyStart} /> */}
-                </span>
+                {startDateFound ?
+                    <span className="flex-justify-end duration-span">
+                        <h1 className="popup-number">{value}</h1>
+                        <p className="days" style={{ marginLeft: '5px' }}>{unit} clean</p>
+                    </span>
+                    :
+                    <span className="flex-justify-end duration-span">
+                        <h1 className="popup-number">0</h1>
+                        <p className="days" style={{ marginLeft: '3px' }}>days clean</p>
+                    </span>}
 
                 <p>🎯 Target Days: 30</p>
                 <p>📅 Start Date: Jan 1, 2024</p>
