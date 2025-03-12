@@ -16,9 +16,9 @@ function Landing() {
     const [startTime, setStartTime] = useState<Date | null>(null);
     const [timeClean, setTimeClean] = useState('');
     const [startDateFound, setStartDateFound] = useState(false)
+    const [resetButtonClicked, setResetButtonClicked] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(true)
 
-    // Load start time from localStorage when the component mounts
     useEffect(() => {
         const savedStartTime = localStorage.getItem('cleanStartTime');
         if (savedStartTime) {
@@ -27,8 +27,8 @@ function Landing() {
         }
     }, []);
 
-    // Function to start/reset the timer
     const handleStart = () => {
+        setIsAuthenticated(true)
         if (isAuthenticated && !startDateFound) {
             const newStartTime = new Date();
             setStartTime(newStartTime);
@@ -37,11 +37,17 @@ function Landing() {
         setBottomSheetOpen(true)
     };
 
-    const handleEnd = () => {
-        localStorage.removeItem('cleanStartTime')
+    const handleReset = () => {
+        setResetButtonClicked(true)
+        setResetBottomSheetOpen(true)
+        // localStorage.removeItem('cleanStartTime')
     }
 
-    // Update the displayed time every second
+    const handleResetBottomSheetClosed = () => {
+        setResetButtonClicked(false)
+        setResetBottomSheetOpen(false)
+    }
+
     useEffect(() => {
         if (!startTime) return;
         const interval = setInterval(() => {
@@ -67,7 +73,7 @@ function Landing() {
         <div className="flex-column-align-center-justify-between main-container">
 
             <div className="flex-justify-between width100 navbar">
-                <img src={logo} alt="image" style={{ width: "55px" }} onClick={handleEnd} />
+                <img src={logo} alt="image" style={{ width: "55px" }} />
                 <img src={avatar} alt="image" style={{ width: "38px", border: "2px solid #867070", borderRadius: '50%' }} />
             </div>
 
@@ -84,7 +90,7 @@ function Landing() {
                 :
                 <div className="flex-column-align-center duration-landing" onClick={() => setIsPopupOpen(true)}>
                     <h1 className="number">0</h1>
-                    <p className="days">days</p>
+                    <p className="days">seconds</p>
                     <p className="description">Alcohol free</p>
                 </div>}
 
@@ -92,12 +98,12 @@ function Landing() {
 
             <div className="flex-column-align-center width100">
                 <button onClick={() => handleStart()}>Start</button>
-                <button className="reset-button" onClick={() => setResetBottomSheetOpen(true)}>Reset</button>
+                <button className="reset-button" onClick={handleReset}>Reset</button>
             </div>
 
             <BottomSheet isOpen={isBottomSheetOpen} startDateFound={startDateFound} timeClean={timeClean} isAuthenticated={isAuthenticated} onClose={() => setBottomSheetOpen(false)} />
 
-            <ResetBottomSheet isOpen={isResetBottomSheetOpen} onClose={() => setResetBottomSheetOpen(false)} />
+            <ResetBottomSheet isOpen={isResetBottomSheetOpen} startDateFound={startDateFound} timeClean={timeClean} resetButtonClicked={resetButtonClicked} onClose={handleResetBottomSheetClosed} />
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { splitTimeClean } from "../constants/functions.tsx";
-import Clock from "./clock"
 // import Duration from "./duration.tsx";
 
 interface TargetPopupProps {

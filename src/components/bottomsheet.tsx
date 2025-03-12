@@ -114,7 +114,6 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, isAuthentica
                         </div>
                         <div className="hourglass-div">
                             <Dotlottieanimation animationPath={hourglass} />
-
                         </div>
 
                         <h2 className="DMsans">Congratulations🎊</h2>
@@ -128,7 +127,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, isAuthentica
                             :
                             <div>
                                 <h1 className="number" style={{ marginTop: '30px' }}>0</h1>
-                                <p className="days">days</p>
+                                <p className="days">seconds</p>
                             </div>}
                     </div>
                 )}
