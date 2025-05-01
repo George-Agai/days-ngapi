@@ -18,9 +18,6 @@ const ResetCount: React.FC<ResetCountProps> = ({ isOpen, onClose, startDateFound
 
     const [step, setStep] = useState<number>(1);
     const [count, setCount] = useState<number>(Number(value));
-    console.log("resetButtonClicked", resetButtonClicked)
-    console.log("count", count)
-    console.log("value", value)
 
     useEffect(() => {
         if (value) {
@@ -30,8 +27,7 @@ const ResetCount: React.FC<ResetCountProps> = ({ isOpen, onClose, startDateFound
 
     useEffect(() => {
         if (count > 0 && resetButtonClicked) {
-            console.log("Timer running:", count)
-            const timer = setTimeout(() => setCount(count - 1), 20); // Decrease every second
+            const timer = setTimeout(() => setCount(count - 1), 20);
             return () => clearTimeout(timer);
         }
     }, [count, resetButtonClicked]);

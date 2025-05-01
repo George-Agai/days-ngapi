@@ -5,13 +5,19 @@ import { splitTimeClean } from "../constants/functions.tsx";
 interface TargetPopupProps {
     isOpen: boolean;
     onClose: () => void;
-    timeClean: string
-    startDateFound?: boolean
+    timeClean: string;
+    startDateFound?: boolean;
+    targetDetails?: {
+        target: string,
+        startDate: Date
+    };
 }
 
-const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen, timeClean, startDateFound }) => {
+const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen, timeClean, startDateFound, targetDetails }) => {
 
+    // const [target, setTarget] = useState(null)
     const { value, unit } = splitTimeClean(timeClean);
+
 
     // const journeyStart = new Date(new Date().getTime() - (1 * 86400 + 2 * 3600 + 15 * 60) * 1000);
     return (
@@ -36,8 +42,12 @@ const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen, timeClean, s
                         <p className="days" style={{ marginLeft: '3px' }}>days clean</p>
                     </span>}
 
-                <p>🎯 Target Days: 30</p>
-                <p>📅 Start Date: Jan 1, 2024</p>
+                <p>🎯 {targetDetails ? `Target: ${targetDetails.target}` : "No target set"}</p>
+                <p>📅 {targetDetails ?
+                    `Start: ${targetDetails.startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`
+                    :
+                    "Not started"
+                }</p>
                 <button onClick={onClose} className="close-button">Close</button>
             </motion.div>
         </>

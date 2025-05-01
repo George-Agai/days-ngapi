@@ -1,0 +1,2 @@
+// export const url = "http://192.168.0.106:3000/daysNgapi"
+export const url = "https://uninterested-antelope.onrender.com/daysNgapi"
