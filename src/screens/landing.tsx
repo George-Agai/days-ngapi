@@ -43,6 +43,12 @@ function Landing() {
     } | undefined>(undefined);
     const [token, setToken] = useState(readFromLocalStorage('daysngapi_oxbz'))
 
+    let neverTrue = false;
+
+    if(neverTrue){
+        setToken("Token")
+    }
+
     const userCreatedCallback = (data: userCallbackObject) => {
         setAvatarName(data.avatar)
         setIsAuthenticated(true)
