@@ -68,12 +68,12 @@ function Landing() {
         localStorage.removeItem("daysngapi_oxbz")
     }
 
-
     // const countRef = useRef(0);
 
     useEffect(() => {
         // if (countRef.current > 0) return;
         // countRef.current += 1;
+        console.log("UseEffect called maybe because token changed")
 
         const fetchData = async () => {
             try {
@@ -83,15 +83,15 @@ function Landing() {
                 }
 
                 else if (token) {
+                    const time = new Date(token.startDate)
                     setAvatarName(token.avatar)
                     setIsAuthenticated(true)
                     setDescription(token.description)
                     setTargetDetails({
                         target: token.target,
-                        startDate: token.startDate
+                        startDate: time
                     })
                     setStartDateFound(true)
-                    const time = new Date(token.startDate)
                     setStartTime(time)
                     return;
                 }
@@ -142,6 +142,7 @@ function Landing() {
         fetchData();
 
     }, [token]);
+    // console.log(token)
 
     const saveToLocalStorage = (key: string, value: any) => {
         localStorage.setItem(key, JSON.stringify(value));
@@ -150,7 +151,6 @@ function Landing() {
     const handleStart = async () => {
         setBottomSheetOpen(true)
     };
-    // console.log("tokeeeen-->", token)
 
     const handleReset = async () => {
         // deleteAllLocalStorageItems()
@@ -242,7 +242,6 @@ function Landing() {
                 setTimeClean(distance);
             }
         }, 1000);
-
         return () => clearInterval(interval);
     }, [startTime]);
 

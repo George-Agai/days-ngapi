@@ -18,7 +18,6 @@ const TargetPopup: React.FC<TargetPopupProps> = ({ onClose, isOpen, timeClean, s
     // const [target, setTarget] = useState(null)
     const { value, unit } = splitTimeClean(timeClean);
 
-
     // const journeyStart = new Date(new Date().getTime() - (1 * 86400 + 2 * 3600 + 15 * 60) * 1000);
     return (
         <>
