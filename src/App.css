@@ -255,6 +255,11 @@ input:focus {
   margin-top: -15px;
 }
 
+select:focus {
+  border: 2px solid #867070;
+  outline: none;
+}
+
 .avatar-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
