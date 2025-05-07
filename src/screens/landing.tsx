@@ -73,7 +73,7 @@ function Landing() {
     useEffect(() => {
         // if (countRef.current > 0) return;
         // countRef.current += 1;
-        console.log("UseEffect called maybe because token changed")
+        // console.log("UseEffect called maybe because token changed")
 
         const fetchData = async () => {
             try {
@@ -95,45 +95,6 @@ function Landing() {
                     setStartTime(time)
                     return;
                 }
-
-                // await axios.get(`${url}/authentication`, {
-                //     headers: {
-                //         'Authorization': `${token}`,
-                //     },
-                // })
-                //     .then((tokenAuthenticationPayload) => {
-                //         if (tokenAuthenticationPayload.data.message == "Invalid token") {
-                //             console.log("Invalid token")
-                //             return;
-                //         }
-                //         else if (tokenAuthenticationPayload.data.message == "Access granted") {
-                //             console.log("Access granted");
-                //             setIsAuthenticated(true);
-                //             setAvatarName(tokenAuthenticationPayload.data.user.avatar)
-                //             setDescription(tokenAuthenticationPayload.data.user.description)
-
-                //             console.log("tokenAuthenticationPayload-->", tokenAuthenticationPayload)
-
-                //             const newStartTime = tokenAuthenticationPayload.data.user.startDate
-                //             console.log("newStartTime", newStartTime)
-                //             setStartDateFound(true)
-                //             setStartTime(new Date(newStartTime));
-                //             setTargetDetails({
-                //                 target: tokenAuthenticationPayload.data.user.target,
-                //                 startDate: new Date(newStartTime)
-                //             });
-
-                //             const date = new Date(newStartTime);
-                //             localStorage.setItem('cleanStartTime', date.toISOString());
-                //             // localStorage.setItem('cleanStartTime', newStartTime.toISOString());
-                //         }
-                //         else if (tokenAuthenticationPayload.data.message == "Access denied. No token provided") {
-                //             console.log("Access denied. No token provided");
-                //             setIsAuthenticated(false);
-                //         }
-
-                //     })
-                //     .catch(error => console.log(error))
             }
             catch (error) {
                 console.error(error);
