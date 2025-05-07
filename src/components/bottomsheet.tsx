@@ -172,7 +172,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, isAuthentica
                 {step === 2 && (
                     <div className="bottom-sheet-content">
                         <img src={selectedAvatar} alt="User" className="user-icon" style={{ border: "2px solid #867070", borderRadius: '50%' }} />
-                        <p className="instruction DMsans">Please select your avatar{selectedAvatar}</p>
+                        <p className="instruction DMsans">Please select your avatar</p>
                         <div className="avatar-grid">
                             {avatars.map((avatar, index) => (
                                 <div key={index} className={`avatar flex-align-center ${selectedAvatar === avatar ? "selected" : ""}`} onClick={() => setSelectedAvatar(avatar)}>
